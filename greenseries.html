@@ -124,7 +124,7 @@
   </div>
 
   <div class="container">
-    <h1>混沌異域</h1>
+    <h1>艾芙共和</h1>
 
     <div class="stage-tabs" role="tablist" aria-label="階段切換">
       <button id="tabCamp" class="active">大本營牌庫</button>
@@ -241,44 +241,47 @@
   }
 
   const leaders = [
-    { id:'L_D_A', name:'鶴仙轉世 聖德', type:'demon', img: imgForId('L_D_A') },
-    { id:'L_D_B', name:'天照之子 聖德', type:'demon', img: imgForId('L_D_B') },
-    { id:'L_T_A', name:'蘭質蕙心 武墨', type:'tomb',  img: imgForId('L_T_A') },
-    { id:'L_T_B', name:'帝國女皇 武墨', type:'tomb',  img: imgForId('L_T_B') },
-    { id:'L_N_A', name:'幽冥 領主 A', type:'nether', img: imgForId('L_N_A') },
-    { id:'L_N_B', name:'幽冥 領主 B', type:'nether', img: imgForId('L_N_B') }
+    { id:'L_D_A', name:'和平之神 葉塔吉蓮娜', type:'demon', img: imgForId('L_D_A') },
+    { id:'L_D_B', name:'森林之神 葉塔吉蓮娜', type:'demon', img: imgForId('L_D_B') },
+    { id:'L_T_A', name:'血精靈始祖 威廉', type:'tomb',  img: imgForId('L_T_A') },
+    { id:'L_T_B', name:'吸血伯爵 威廉', type:'tomb',  img: imgForId('L_T_B') },
+    { id:'L_N_A', name:'至尊姊弟 維多利亞/阿爾伯特', type:'nether', img: imgForId('L_N_A') },
+    { id:'L_N_B', name:'雨神 維多利亞/阿爾伯特', type:'nether', img: imgForId('L_N_B') }
   ];
 
   const aCardsByType = {
     demon: [
-      { id:'A_DE_1', name:'長戟足輕', cost:1, maxCopies:5, img: imgForId('A_DE_1') },
-      { id:'A_DE_2', name:'忠義將軍武士', cost:4, maxCopies:3, img: imgForId('A_DE_2') },
-      { id:'A_DE_3', name:'薩摩鐵炮', cost:3, maxCopies:5, img: imgForId('A_DE_3') },
-      { id:'A_DE_4', name:'密忍者', cost:2, maxCopies:2, img: imgForId('A_DE_4') },
-      { id:'A_DE_5', name:'母衣眾', cost:5, maxCopies:3, img: imgForId('A_DE_5') },
+      { id:'A_DE_1', name:'月行者', cost:4, maxCopies:3, img: imgForId('A_DE_1') },
+      { id:'A_DE_2', name:'豹身守護者', cost:1, maxCopies:5, img: imgForId('A_DE_2') },
+      { id:'A_DE_3', name:'戰爭古樹', cost:6, maxCopies:3, img: imgForId('A_DE_3') },
+      { id:'A_DE_4', name:'精靈女獵手', cost:2, maxCopies:5, img: imgForId('A_DE_4') },
+      { id:'A_DE_5', name:'御林龍騎士', cost:7, maxCopies:3, img: imgForId('A_DE_5') },
     
     ],
     tomb: [
-      { id:'A_TO_1', name:'玄武戰艦', cost:8, maxCopies:1, img: imgForId('A_TO_1') },
-      { id:'A_TO_2', name:'舞姬', cost:1, maxCopies:3, img: imgForId('A_TO_2') },
-      { id:'A_TO_3', name:'虎噴裝甲 戰車', cost:5, maxCopies:3, img: imgForId('A_TO_3') },
-      { id:'A_TO_4', name:'虎噴裝甲 陣地', cost:0, maxCopies:0, img: imgForId('A_TO_4') },
-      { id:'A_TO_5', name:'倉月影武', cost:3, maxCopies:5, img: imgForId('A_TO_5') },
-      { id:'A_TO_5', name:'火麒麟衛', cost:2, maxCopies:5, img: imgForId('A_TO_5') }
+      { id:'A_TO_1', name:'血堡石象鬼', cost:2, maxCopies:5, img: imgForId('A_TO_1') },
+      { id:'A_TO_2', name:'利爪狼', cost:3, maxCopies:3, img: imgForId('A_TO_2') },
+      { id:'A_TO_3', name:'荒墳贈惡', cost:5, maxCopies:3, img: imgForId('A_TO_3') },
+      { id:'A_TO_4', name:'黑暗騎士', cost:6, maxCopies:3, img: imgForId('A_TO_4') },
+      { id:'A_TO_5', name:'食屍鬼', cost:1, maxCopies:5, img: imgForId('A_TO_5') }
+      
       
     ],
     nether: [
-      { id:'A_NT_1', name:'幽影獵手', cost:2, maxCopies:3, img: imgForId('A_NT_1') },
-      { id:'A_NT_2', name:'冥火術士', cost:3, maxCopies:2, img: imgForId('A_NT_2') },
-      { id:'A_NT_3', name:'虛無行者', cost:4, maxCopies:1, img: imgForId('A_NT_3') },
-      { id:'A_NT_4', name:'沉默守衛', cost:2, maxCopies:3, img: imgForId('A_NT_4') },
-      { id:'A_NT_5', name:'幽冥博士', cost:1, maxCopies:5, img: imgForId('A_NT_5') }
+      { id:'A_NT_1', name:'德魯伊 賢者', cost:4, maxCopies:3, img: imgForId('A_NT_1') },
+      { id:'A_NT_2', name:'德魯伊 棕熊', cost:4, maxCopies:3, img: imgForId('A_NT_2') },
+      { id:'A_NT_3', name:'德魯伊 黑虎', cost:4, maxCopies:3, img: imgForId('A_NT_3') },
+      { id:'A_NT_4', name:'德魯伊 白鴞', cost:4, maxCopies:3, img: imgForId('A_NT_4') },
+      { id:'A_NT_5', name:'光精靈白獅衛', cost:5, maxCopies:3, img: imgForId('A_NT_5') },
+      { id:'A_NT_6', name:'王國皇家騎士', cost:4, maxCopies:3, img: imgForId('A_NT_6') },
+      { id:'A_NT_7', name:'披甲信徒', cost:2, maxCopies:5, img: imgForId('A_NT_7') },
+      { id:'A_NT_8', name:'暗精靈獵手', cost:3, maxCopies:3, img: imgForId('A_NT_8') }
     ]
   };
 
   const bCards = [
-    { id:'B_1', name:'八崎大蛇 吞天', cost:8, maxCopies:1, img: imgForId('B_1') },
-    { id:'B_2', name:'天師 諸葛孔明', cost:9, maxCopies:1, img: imgForId('B_2') },
+    { id:'B_1', name:'鷹王子 彼得', cost:4, maxCopies:1, img: imgForId('B_1') },
+    { id:'B_2', name:'伯爵夫人 茜茜', cost:4, maxCopies:1, img: imgForId('B_2') },
     { id:'B_3', name:'前線增援', cost:3, maxCopies:1, img: imgForId('B_3') }
   ];
 
