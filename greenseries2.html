@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>寂滅部落</title>
+  <title>艾夫共和</title>
   <style>
     :root{
       --topbar-height:64px;
@@ -124,7 +124,7 @@
   </div>
 
   <div class="container">
-    <h1>寂滅部落</h1>
+    <h1>艾夫共和</h1>
 
     <div class="stage-tabs" role="tablist" aria-label="階段切換">
       <button id="tabCamp" class="active">大本營牌庫</button>
@@ -182,7 +182,7 @@
 
         <!-- START ADDED: inline deck name input (placed at bottom of lineup panel) -->
         <div style="margin-top:12px;">
-          <label style="display:block;margin-bottom:6px;color:#cfe8ff;font-weight:700;">副牌組名稱</label>
+          <label style="display:block;margin-bottom:6px;color:#cfe8ff;font-weight:700;">牌組名稱</label>
           <input id="inlineDeckName" type="text" placeholder="在此輸入牌組名稱" style="width:100%;box-sizing:border-box;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:#fff;">
         </div>
         <!-- END ADDED: inline deck name input -->
@@ -190,7 +190,7 @@
       </div>
 
       <div class="footer-actions" style="margin-top:14px;">
-        <button class="btn-primary" id="confirmBtn">確認軍表</button>
+        <button class="btn-primary" id="confirmBtn">匯出軍表</button>
         <button class="btn-ghost" id="backToCampBtn">返回編輯大本營</button>
         <button class="btn-ghost" id="clearLineupBtn">重置軍表構築</button>
         <!-- START ADDED HTML: share button -->
@@ -253,50 +253,48 @@
   }
 
   const leaders = [
-    { id:'L_D_A', name:'蟲母 特麗布瓦娜', type:'demon', img: imgForId('L_D_A') },
-    { id:'L_D_B', name:'獨尊首腦 特麗布瓦娜', type:'demon', img: imgForId('L_D_B') },
-    { id:'L_T_A', name:'古神之子 祖瑪', type:'tomb',  img: imgForId('L_T_A') },
-    { id:'L_T_B', name:'暴龍王 祖瑪', type:'tomb',  img: imgForId('L_T_B') },
-    { id:'L_N_A', name:'蠻王咆嘯 提爾', type:'nether', img: imgForId('L_N_A') },
-    { id:'L_N_B', name:'大酋長 提爾', type:'nether', img: imgForId('L_N_B') }
+    { id:'L_D_A', name:'和平之神 葉塔吉蓮娜', type:'demon', img: imgForId('L_D_A') },
+    { id:'L_D_B', name:'森林之神 葉塔吉蓮娜', type:'demon', img: imgForId('L_D_B') },
+    { id:'L_T_A', name:'血精靈始祖 威廉', type:'tomb',  img: imgForId('L_T_A') },
+    { id:'L_T_B', name:'吸血伯爵 威廉', type:'tomb',  img: imgForId('L_T_B') },
+    { id:'L_N_A', name:'至尊姊弟 維多利亞/阿爾伯特', type:'nether', img: imgForId('L_N_A') },
+    { id:'L_N_B', name:'雨神 維多利亞/阿爾伯特', type:'nether', img: imgForId('L_N_B') }
   ];
 
   const aCardsByType = {
     demon: [
-      { id:'A_DE_1', name:'刀鋒蟲卵', cost:1, maxCopies:3, img: imgForId('A_DE_1') },
-      { id:'A_DE_2', name:'暴君', cost:6, maxCopies:4, img: imgForId('A_DE_2') },
-      { id:'A_DE_3', name:'誘捕者', cost:3, maxCopies:3, img: imgForId('A_DE_3') },
-      { id:'A_DE_4', name:'毒爆蟲', cost:1, maxCopies:5, img: imgForId('A_DE_4') },
-      { id:'A_DE_5', name:'坑道蠕蟲', cost:2, maxCopies:3, img: imgForId('A_DE_5') },
-      { id:'A_DE_6', name:'刀鋒蟲', cost:0, maxCopies:0, img: imgForId('A_DE_6') }
+      { id:'A_DE_1', name:'月行者', cost:4, maxCopies:3, img: imgForId('A_DE_1') },
+      { id:'A_DE_2', name:'豹身守護者', cost:1, maxCopies:5, img: imgForId('A_DE_2') },
+      { id:'A_DE_3', name:'戰爭古樹', cost:6, maxCopies:3, img: imgForId('A_DE_3') },
+      { id:'A_DE_4', name:'精靈女獵手', cost:2, maxCopies:5, img: imgForId('A_DE_4') },
+      { id:'A_DE_5', name:'御林龍騎士', cost:7, maxCopies:3, img: imgForId('A_DE_5') },
     
     ],
     tomb: [
-      { id:'A_TO_1', name:'鱷魚人統領', cost:4, maxCopies:3, img: imgForId('A_TO_1') },
-      { id:'A_TO_2', name:'羽蛇獸', cost:5, maxCopies:3, img: imgForId('A_TO_2') },
-      { id:'A_TO_3', name:'元素薩滿', cost:3, maxCopies:3, img: imgForId('A_TO_3') },
-      { id:'A_TO_4', name:'靈蜥戰士', cost:1, maxCopies:5, img: imgForId('A_TO_4') },
-      { id:'A_TO_5', name:'雨林蠻人', cost:3, maxCopies:5, img: imgForId('A_TO_5') },
-      { id:'A_TO_6', name:'風元素', cost:0, maxCopies:0, img: imgForId('A_TO_6') },
-      { id:'A_TO_7', name:'野豬', cost:0, maxCopies:0, img: imgForId('A_TO_7') },
+      { id:'A_TO_1', name:'血堡石象鬼', cost:2, maxCopies:5, img: imgForId('A_TO_1') },
+      { id:'A_TO_2', name:'利爪狼', cost:3, maxCopies:3, img: imgForId('A_TO_2') },
+      { id:'A_TO_3', name:'荒墳贈惡', cost:5, maxCopies:3, img: imgForId('A_TO_3') },
+      { id:'A_TO_4', name:'黑暗騎士', cost:6, maxCopies:3, img: imgForId('A_TO_4') },
+      { id:'A_TO_5', name:'食屍鬼', cost:1, maxCopies:5, img: imgForId('A_TO_5') }
       
       
     ],
     nether: [
-      { id:'A_NT_1', name:'雙頭巨魔', cost:7, maxCopies:2, img: imgForId('A_NT_1') },
-      { id:'A_NT_2', name:'狂戰士', cost:1, maxCopies:5, img: imgForId('A_NT_2') },
-      { id:'A_NT_3', name:'掠奪者', cost:4, maxCopies:3, img: imgForId('A_NT_3') },
-      { id:'A_NT_4', name:'半人馬投矛手', cost:3, maxCopies:5, img: imgForId('A_NT_4') },
-      { id:'A_NT_5', name:'重型投石器', cost:5, maxCopies:3, img: imgForId('A_NT_5') }
+      { id:'A_NT_1', name:'德魯伊 賢者', cost:4, maxCopies:3, img: imgForId('A_NT_1') },
+      { id:'A_NT_2', name:'德魯伊 棕熊', cost:4, maxCopies:3, img: imgForId('A_NT_2') },
+      { id:'A_NT_3', name:'德魯伊 黑虎', cost:4, maxCopies:3, img: imgForId('A_NT_3') },
+      { id:'A_NT_4', name:'德魯伊 白鴞', cost:4, maxCopies:3, img: imgForId('A_NT_4') },
+      { id:'A_NT_5', name:'光精靈白獅衛', cost:5, maxCopies:3, img: imgForId('A_NT_5') },
+      { id:'A_NT_6', name:'王國皇家騎士', cost:4, maxCopies:3, img: imgForId('A_NT_6') },
+      { id:'A_NT_7', name:'披甲信徒', cost:2, maxCopies:5, img: imgForId('A_NT_7') },
+      { id:'A_NT_8', name:'暗精靈獵手', cost:3, maxCopies:3, img: imgForId('A_NT_8') }
     ]
   };
 
   const bCards = [
-    { id:'B_1', name:'傳染巢 格爾塔納加拉', cost:4, maxCopies:1, img: imgForId('B_1') },
-    { id:'B_2', name:'創世使者 阿努', cost:5, maxCopies:1, img: imgForId('B_2') },
-    { id:'B_3', name:'風之使者 恩立爾', cost:3, maxCopies:1, img: imgForId('B_3') },
-    { id:'B_4', name:'地之使者 恩基', cost:3, maxCopies:1, img: imgForId('B_4') },
-    { id:'B_6', name:'寒冰薩滿 芬布爾', cost:4, maxCopies:1, img: imgForId('B_6') }
+    { id:'B_1', name:'鷹王子 彼得', cost:4, maxCopies:1, img: imgForId('B_1') },
+    { id:'B_2', name:'伯爵夫人 茜茜', cost:4, maxCopies:1, img: imgForId('B_2') },
+    { id:'B_3', name:'前線增援', cost:3, maxCopies:1, img: imgForId('B_3') }
   ];
 
   const cCards = [
